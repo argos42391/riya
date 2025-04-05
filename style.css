@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e2d6c5;
+  margin: 0;
+  padding: 40px;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: auto;
+  background-color: white;
+  border: 3px solid #a4470e;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+h1 {
+  font-family: 'Kaushan Script', cursive;
+  color: #a4470e;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  color: #333;
+}
+
+input[type="email"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background-color: #a4470e;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #843600;
+}
+
+.contact {
+  text-align: center;
+  margin-top: 20px;
+}
