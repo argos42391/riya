@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>#JusticePourRiya - Action collective</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #e2d6c5;
+      padding: 20px;
+      margin: 0;
+    }
+    .step {
+      display: none;
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .step.active {
+      display: block;
+    }
+    h2 {
+      font-family: 'Kaushan Script', cursive;
+      color: #a4470e;
+    }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+    button {
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      background-color: #a4470e;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #88380c;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center">🧡 Participez à notre action collective pour soutenir Riya ! Suivez les étapes ci-dessous 👇</h2>
+
+  <div class="step active" id="step1">
+    <h3>📥 Étape 1 : Télécharge la pancarte</h3>
+    <p>Imprime ou enregistre cette pancarte à afficher sur ta photo :</p>
+    <p style="text-align:center;"><img src="https://static.wixstatic.com/media/f2c74a_68e535ff1c654c7f971aae440a8fa7ec~mv2.png" alt="Pancarte Justice pour Riya" style="max-width:100%;"></p>
+    <p style="text-align:center;"><a href="https://static.wixstatic.com/media/f2c74a_68e535ff1c654c7f971aae440a8fa7ec~mv2.png" download>📥 Télécharger la pancarte</a></p>
+    <div class="buttons">
+      <span></span><button onclick="nextStep()">Suivant</button>
+    </div>
+  </div>
+
+  <div class="step" id="step2">
+    <h3>📸 Étape 2 : Prends une photo</h3>
+    <p>Prends-toi en photo (ou ton animal) avec la pancarte imprimée ou affichée sur ton téléphone/tablette.</p>
+    <div class="buttons">
+      <button onclick="prevStep()">Précédent</button>
+      <button onclick="nextStep()">Suivant</button>
+    </div>
+  </div>
+
+  <div class="step" id="step3">
+    <h3>📤 Étape 3 : Envoie ta photo</h3>
+    <p>Utilise ce formulaire pour nous transmettre ta photo :</p>
+    <iframe src="formulaire.html" width="100%" height="400" style="border:none;"></iframe>
+    <div class="buttons">
+      <button onclick="prevStep()">Précédent</button>
+      <button onclick="nextStep()">Suivant</button>
+    </div>
+  </div>
+
+  <div class="step" id="step4">
+    <h3>📢 Étape 4 : Partage ton soutien</h3>
+    <p>Partage ta photo sur Instagram, Facebook ou Twitter avec le hashtag <strong>#JusticePourRiya</strong> et identifie-nous :</p>
+    <ul>
+      <li><strong>Instagram</strong> : @association.argos42</li>
+      <li><strong>Facebook</strong> : Association ARGOS 42</li>
+    </ul>
+    <p>Merci pour ton soutien 💛</p>
+    <p>Besoin d’aide ? <a href="https://www.association-argos42.com/contact">Contacte-nous ici</a>.</p>
+    <div class="buttons">
+      <button onclick="prevStep()">Précédent</button>
+    </div>
+  </div>
+
+  <script>
+    let current = 1;
+    function showStep(num) {
+      document.querySelectorAll('.step').forEach((el, index) => {
+        el.classList.remove('active');
+        if (index === num - 1) el.classList.add('active');
+      });
+    }
+    function nextStep() {
+      current++;
+      showStep(current);
+    }
+    function prevStep() {
+      current--;
+      showStep(current);
+    }
+  </script>
+</body>
+</html>
