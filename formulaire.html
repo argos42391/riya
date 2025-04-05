@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulaire Justice pour Riya</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="formulaire.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="form-container">
-    <h1>📸 Partage ta photo pour soutenir Riya</h1>
-    <p>Remplis ce formulaire pour nous envoyer ta photo avec l’affiche #JusticePourRiya 🧡</p>
-    <form action="https://formsubmit.co/a0eeb9c76e3f47154c9bd1fa05e362b6" method="POST" enctype="multipart/form-data">
-      <label for="email">Ton adresse e-mail :</label>
-      <input type="email" name="email" required>
+  <div class="container">
+    <h2>📸 Envoie ta photo pour Riya</h2>
+    <form action="https://formsubmit.co/communication@association-argos42.com" method="POST" enctype="multipart/form-data">
+      <label for="email">Ton email (facultatif, pour te tenir informé·e)</label>
+      <input type="email" name="email" id="email" placeholder="ton@email.com">
 
-      <label for="photo">Ta photo (JPG, PNG) :</label>
-      <input type="file" name="photo" accept="image/*" required>
+      <label for="photo">Ajoute ta photo (jpg, png, jpeg)</label>
+      <input type="file" name="attachment" id="photo" accept="image/*" required>
 
-      <input type="hidden" name="_subject" value="Nouvelle photo pour #JusticePourRiya">
+      <input type="hidden" name="_subject" value="Nouvelle photo Riya !">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://www.association-argos42.com/merci-riya">
+      <input type="hidden" name="_next" value="https://association-argos42.com/formulaire-remerciement">
 
-      <button type="submit">Envoyer la photo</button>
+      <button type="submit">Envoyer la photo 🧡</button>
     </form>
-
-    <p class="contact">❓ Une question ? <a href="https://www.association-argos42.com/contact">Contacte-nous</a></p>
   </div>
 </body>
 </html>
