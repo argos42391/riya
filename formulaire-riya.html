@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire Justice pour Riya</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>📸 Partage ta photo pour soutenir Riya</h1>
+    <p>Remplis ce formulaire pour nous envoyer ta photo avec l’affiche #JusticePourRiya 🧡</p>
+    <form action="https://formsubmit.co/a0eeb9c76e3f47154c9bd1fa05e362b6" method="POST" enctype="multipart/form-data">
+      <label for="email">Ton adresse e-mail :</label>
+      <input type="email" name="email" required>
+
+      <label for="photo">Ta photo (JPG, PNG) :</label>
+      <input type="file" name="photo" accept="image/*" required>
+
+      <input type="hidden" name="_subject" value="Nouvelle photo pour #JusticePourRiya">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://www.association-argos42.com/merci-riya">
+
+      <button type="submit">Envoyer la photo</button>
+    </form>
+
+    <p class="contact">❓ Une question ? <a href="https://www.association-argos42.com/contact">Contacte-nous</a></p>
+  </div>
+</body>
+</html>
