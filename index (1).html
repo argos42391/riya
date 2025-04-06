@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <title>#JusticePourRiya - Action collective</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #e2d6c5;
+      padding: 20px;
+      margin: 0;
+    }
+    .step {
+      display: none;
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .step.active {
+      display: block;
+    }
+    h2 {
+      font-family: 'Kaushan Script', cursive;
+      color: #a4470e;
+    }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+    button {
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      background-color: #a4470e;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #88380c;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="email"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .thanks {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1.1em;
+      color: green;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h2 style="text-align:center">🧡 Participez à notre action collective pour soutenir Riya ! Suivez les étapes ci-dessous 👇</h2>
+
+  <!-- Étape 1 -->
+  <div class="step active" id="step1">
+    <h3>📥 Étape 1 : Télécharge la pancarte</h3>
+    <p>Imprime ou enregistre cette pancarte à afficher sur ta photo :</p>
+    <p style="text-align:center;">
+      <img alt="Pancarte Justice pour Riya" src="https://static.wixstatic.com/media/f2c74a_68e535ff1c654c7f971aae440a8fa7ec~mv2.png" style="max-width:100%;"/>
+    </p>
+    <p style="text-align:center;">
+      <a download href="https://static.wixstatic.com/media/f2c74a_68e535ff1c654c7f971aae440a8fa7ec~mv2.png" target="_blank">📥 Télécharger la pancarte</a>
+    </p>
+    <div class="buttons">
+      <span></span><button onclick="nextStep()">Suivant</button>
+    </div>
+  </div>
+
+  <!-- Étape 2 -->
+  <div class="step" id="step2">
+    <h3>📸 Étape 2 : Prends une photo</h3>
+    <p>Prends-toi en photo (ou ton animal) avec la pancarte imprimée ou affichée sur ton téléphone/tablette.</p>
+    <div class="buttons">
+      <button onclick="prevStep()">Précédent</button>
+      <button onclick="nextStep()">Suivant</button>
+    </div>
+  </div>
+
+  <!-- Étape 3 : Formulaire avec JS -->
+  <div class="step" id="step3">
+    <div class="container">
+      <h2>📸 Envoie ta photo pour Riya</h2>
+      <form id="riyaForm">
+        <label for="email">Ton email (facultatif, pour te tenir informé·e)</label>
+        <input type="email" name="email" id="email" placeholder="ton@email.com">
+
+        <label for="photo">Ajoute ta photo (jpg, png, jpeg)</label>
+        <input type="file" name="attachment" id="photo" accept="image/*" required>
+
+        <button type="submit">Envoyer la photo 🧡</button>
+      </form>
+      <p id="successMessage" class="thanks" style="display:none;">✅ Merci ! Ta photo a bien été envoyée.</p>
+    </div>
+  </div>
+
+  <!-- Étape 4 -->
+  <div class="step" id="step4">
+    <h3>📢 Étape 4 : Partage ton soutien</h3>
+    <p>Partage ta photo sur les réseaux sociaux avec le hashtag <strong>#JusticePourRiya</strong> et identifie-nous <strong>@ARGOS42_</strong> :</p>
+    <p>Merci pour ton soutien 💛</p>
+    <p>Besoin d’aide ? <a href="https://www.association-argos42.com/contact" target="_blank">Contacte-nous ici</a>.</p>
+    <div class="buttons">
+      <button onclick="prevStep()">Précédent</button>
+    </div>
+  </div>
+
+  <script>
+    let current = 1;
+    function showStep(num) {
+      document.querySelectorAll('.step').forEach((el, index) => {
+        el.classList.remove('active');
+        if (index === num - 1) el.classList.add('active');
+      });
+    }
+    function nextStep() {
+      current++;
+      showStep(current);
+    }
+    function prevStep() {
+      current--;
+      showStep(current);
+    }
+
+    document.getElementById('riyaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      formData.append('_subject', 'Nouvelle photo Riya !');
+      formData.append('_captcha', 'false');
+      formData.append('_template', 'table');
+
+      fetch('https://formsubmit.co/communication@association-argos42.com', {
+        method: 'POST',
+        body: formData
+      }).then(response => {
+        if (response.ok) {
+          nextStep();
+        } else {
+          alert("Erreur lors de l'envoi. Merci de réessayer.");
+        }
+      }).catch(error => {
+        console.error(error);
+        alert("Une erreur est survenue.");
+      });
+    });
+  </script>
+</body>
+</html>
